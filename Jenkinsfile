@@ -1,16 +1,18 @@
+simpleBuild {
+ 
+    env = [
+        FOO : 42,
+        BAR : "YASS"
+    ]
+    
+ 
 
-stage('Build') {
-    steps {
-        echo 'Building..'
-    }
-}
-stage('Test') {
-    steps {
-        echo 'Testing..'
-    }
-}
-stage('Deploy') {
-    steps {
-        echo 'Deploying....'
-    }
+    before_script = "echo before"
+    script = 'echo after $FOO'
+    
+    notifications = [
+        email : "mneale@cloudbees.com"    
+    ]
+    
+    
 }
